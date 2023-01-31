@@ -1,5 +1,6 @@
 package findK
 
+// FindMedianSortedArrays https://leetcode.cn/problems/median-of-two-sorted-arrays/
 func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	m := len(nums1)
 	n := len(nums2)
