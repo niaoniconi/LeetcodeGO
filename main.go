@@ -2,23 +2,27 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateGraph/directedGraph"
+	"github.com/LeetcodeGO/operateTree/binaryTree"
 )
 
 func main() {
 
 	fmt.Println("hello world")
-	red := [][]int{
-		[]int{0, 1},
-		[]int{1, 2},
-		[]int{2, 3},
-		[]int{3, 4},
+	node2 := &binaryTree.TreeNode{
+		Val:   2,
+		Left:  nil,
+		Right: nil,
 	}
-	blue := [][]int{
-		[]int{1, 2},
-		[]int{2, 3},
-		[]int{3, 1},
+	node3 := &binaryTree.TreeNode{
+		Val:   3,
+		Left:  nil,
+		Right: nil,
 	}
-	answer := directedGraph.ShortestAlternatingPaths(5, red, blue)
+	node1 := &binaryTree.TreeNode{
+		Val:   1,
+		Left:  node2,
+		Right: node3,
+	}
+	answer := binaryTree.BtreeGameWiningMove(node1, 3, 1)
 	fmt.Println("answer: ", answer)
 }
