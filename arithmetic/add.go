@@ -20,6 +20,7 @@ import "sort"
 1.我计算了很多两个数的和，这不是必须的，我需要的只是找到两个数，找到这个点很适合用哈希表，因为他是key-value的
 2.我和官方解2空间上消耗都是一样的，因为我们需要保存一个键值的对应关系，虽然slice本身已经有了，但是不能根据value来排布或者找到key
 */
+
 func TwoSum1(nums []int, target int) []int { //数组不能作为切片的形式传参   //我的解
 	//sort.Ints(nums)
 	numbers := make([][]int, len(nums), len(nums))

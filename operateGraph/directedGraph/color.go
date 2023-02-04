@@ -148,7 +148,7 @@ func ShortestAlternatingPathsOfficial(n int, redEdges, blueEdges [][]int) []int 
 感想2：当你是要分层的时候，一定要严格记住是在哪一层，官方是把上一层的颜色也存到队列里的，
 如果你要单独用一个结构来存当前的color和上一层的color，你就要深拷贝
 gain：slice是有深拷贝和浅拷贝的，因为他是一个reference type，深拷贝用copy
-
+深拷贝也可以用tempEnd:=colorEnd[:]  //这样应该也是新建了一个引用
 用数字存不同颜色太痛苦了，还是应该贴近数据的原始涵义
 */
 func ShortestAlternatingPathsOptimize(n int, redEdges, blueEdges [][]int) []int {
