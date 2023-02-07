@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateArray/sum"
+	"github.com/LeetcodeGO/operateArray/time"
 )
 
 func main() {
 	fmt.Println("hello world")
-	coins := []int{4, 5, 1, 1, 5, 4, 1, 1, 1, 2}
-	answer := sum.GetMaximumConsecutive(coins)
+	names:=[]string{"leslie","leslie","leslie","clare","clare","clare","clare"}
+	times:=[]string{"13:00","13:20","14:00","18:00","18:51","19:30","19:49"}
+	answer:=time.AlertName(names,times)
 	fmt.Println("answer: ", answer)
 }
 
@@ -34,4 +35,6 @@ func test() {
 	//blue := [][]int{{4, 4}, {2, 5}, {1, 1}, {5, 4}, {3, 3}}
 	//answer2 := directedGraph.ShortestAlternatingPathsOptimize(6, red, blue)
 	//fmt.Println("answer: ", answer2)
+	//coins := []int{4, 5, 1, 1, 5, 4, 1, 1, 1, 2}
+	//answer := sum.GetMaximumConsecutive(coins)
 }
