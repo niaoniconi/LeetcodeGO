@@ -2,15 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateArray/time"
 )
 
 func main() {
-	fmt.Println("hello world")
-	names:=[]string{"leslie","leslie","leslie","clare","clare","clare","clare"}
-	times:=[]string{"13:00","13:20","14:00","18:00","18:51","19:30","19:49"}
-	answer:=time.AlertName(names,times)
-	fmt.Println("answer: ", answer)
+	answers:=make([][]int,5)
+	for i:=0;i<5;i++{
+		answers[i]=make([]int,2)
+	}
+	fmt.Println("answer: ", answers)
 }
 
 func test() {
