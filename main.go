@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateArray/time"
+	"github.com/LeetcodeGO/simulate"
 )
 
 func main() {
 	fmt.Println("hello world")
-	names:=[]string{"leslie","leslie","leslie","clare","clare","clare","clare"}
-	times:=[]string{"13:00","13:20","14:00","18:00","18:51","19:30","19:49"}
-	answer:=time.AlertName(names,times)
+	amout := []int{5, 4, 4}
+	answer := simulate.FillCups(amout)
 	fmt.Println("answer: ", answer)
 }
 
