@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+<<<<<<< HEAD
 	"github.com/LeetcodeGO/simulate"
 )
 
@@ -10,6 +11,16 @@ func main() {
 	amout := []int{5, 4, 4}
 	answer := simulate.FillCups(amout)
 	fmt.Println("answer: ", answer)
+=======
+)
+
+func main() {
+	answers:=make([][]int,5)
+	for i:=0;i<5;i++{
+		answers[i]=make([]int,2)
+	}
+	fmt.Println("answer: ", answers)
+>>>>>>> 6b6fb03c6f1848f23ad1e9dd27c6335401c622bc
 }
 
 func test() {

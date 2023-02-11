@@ -24,6 +24,7 @@ func RemoveSubfolders(folder []string) []string {
 	return answer
 }
 
+// MatchFolderPrefix only for "/abc" folder
 func MatchFolderPrefix(folder string, pattern string) bool {
 	//没有重复的，等于可以排除
 	if len(folder) <= len(pattern) {
