@@ -35,5 +35,6 @@ func countFairPairs(nums []int, lower int, upper int) int64 {
 
 	}
 	return answer
-
 }
+
+
