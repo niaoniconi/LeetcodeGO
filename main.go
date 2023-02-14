@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/LeetcodeGO/operateArray/subArray"
 	"sort"
 )
 
 func main() {
-	nums := []int{0, 0, 0, 0, 0, 0}
-	answer := countFairPairs(nums, 0, 0)
+	nums := []int{9,9,6,0,6,6,9}
+	answer := subArray.LongestWPIGreedy(nums)
 	fmt.Println("answer: ", answer)
 
 }
