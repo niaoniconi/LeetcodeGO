@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateArray/subArray"
+	"github.com/LeetcodeGO/arithmetic/numberTheory"
 	"sort"
 )
 
 func main() {
-	nums := []int{9,9,6,0,6,6,9}
-	answer := subArray.LongestWPIGreedy(nums)
+	nums := []int{18,18,18,15,54,45,45,45}
+	//answer := subArray.LongestWPIGreedy(nums)
+	answer:= numberTheory.IsGoodArray(nums)
 	fmt.Println("answer: ", answer)
+
 
 }
 
