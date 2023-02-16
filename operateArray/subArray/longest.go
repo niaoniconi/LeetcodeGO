@@ -3,24 +3,24 @@ package subArray
 // LongestWPI  https://leetcode.cn/problems/longest-well-performing-interval/  今天的题，待会再转移一下位置
 /**
 我的暴力解
- */
+*/
 func LongestWPI(hours []int) int {
 	//官方前面的处理和我一样,预处理，省略不必要的信息
-	interval:=0
-	for i,hour:=range hours{
-		if hour>8{
-			hours[i]=1
-		}else{
-			hours[i]=-1
+	interval := 0
+	for i, hour := range hours {
+		if hour > 8 {
+			hours[i] = 1
+		} else {
+			hours[i] = -1
 		}
 	}
 	//暴力解
-	for i:=0;i<len(hours);i++{
-		count:=0
-		for j:=i;j<len(hours);j++{
-			count+=hours[j]
-			if count>0&&j-i+1>interval{
-				interval=j-i+1
+	for i := 0; i < len(hours); i++ {
+		count := 0
+		for j := i; j < len(hours); j++ {
+			count += hours[j]
+			if count > 0 && j-i+1 > interval {
+				interval = j - i + 1
 			}
 		}
 	}
@@ -37,41 +37,57 @@ func LongestWPI(hours []int) int {
 （栈顶肯定最近一个符合要求的数，栈元素中间的数是一个不符合要求的区间，由于找到是最长，所以需要尽量包括这些不合格的区间),
 2.怎么根据r找l，一直弹出栈顶元素，直到栈顶元素是小于s[r]的最小元素
 贪心算法：先找到一定满足要求的解，在找到满足要求的最大解
- */
-func LongestWPIGreedy(hours []int)int{
-	interval:=0
-	s:=make([]int,len(hours)+1)
+*/
+func LongestWPIGreedy(hours []int) int {
+	interval := 0
+	s := make([]int, len(hours)+1)
 	var stk []int
-	for i,hour:=range hours{
-		if hour>8{
-			hours[i]=1
-		}else{
-			hours[i]=-1
+
+	//s[i]  前n个数的hours的和 ，如果s[i]>0，说明 或者s[j]>s[i]，说明j-i这个区间里，是一个好区间
+	for i, hour := range hours {
+		if hour > 8 {
+			hours[i] = 1
+		} else {
+			hours[i] = -1
 		}
-		s[i+1]=s[i]+hours[i]
-	}
-	for i:=0;i<len(hours);i++{
-		if len(stk)==0||s[i]<stk[len(stk)-1]{
-			stk=append(stk,i)
-		}
+		s[i+1] = s[i] + hours[i]
 	}
 
+	//用数组模拟栈,stk是栈，栈里压着递减的hours
+	for i := 0; i < len(hours); i++ {
+
+		if len(stk) == 0 || s[i] < s[stk[len(stk)-1]] {
+			if len(stk) != 0 {
+				t := stk[len(stk)-1]
+				t = t - t
+			}
+
+			stk = append(stk, i)
+		}
+	}
 
 	//从后往前，固定r，找l
-	for r:=len(hours);r>=1;r--{
-		temp:=stk[len(stk)-1]
-		var l int
-		l=7   //使用l:=r,l会是6，而不是7，是因为r--吗？：=和等于的区别？
-		for r>temp&&s[r]>s[temp]{
-			l=temp
-			stk=stk[:len(stk)-1]
-			temp=stk[len(stk)-1]
+	for r := len(hours); len(stk) > 0 && r >= 1; r-- {
+		//temp是栈顶元素
+		temp := stk[len(stk)-1]
+		var l int //使用l:=r,如果len(hours)是7，l会是6，而不是7，是因为r--吗？：=和等于的区别？
+		//默认的左边，如果用l当栈顶元素，那么就算 r不大于栈顶元素，也会算上
+		l = r
+		//如果r大于栈顶元素，那么出栈
+		for (r > temp && s[r] > s[temp]) || r == temp {
+			l = temp
+			stk = stk[:len(stk)-1]
+
+			if len(stk) == 0 {
+				break
+			}
+			//出栈之后更新栈顶元素
+			temp = stk[len(stk)-1]
 		}
-		if r-l>interval{
-			interval=r-l
+		if r-l > interval {
+			interval = r - l
 		}
 
 	}
 	return interval
 }
-

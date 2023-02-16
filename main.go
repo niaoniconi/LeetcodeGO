@@ -2,16 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateArray/remove"
+	"github.com/LeetcodeGO/operateArray/subArray"
 	"sort"
 )
 
 func main() {
-	nums := []int{18,18,18,15,54,45,45,45}
-	//answer := subArray.LongestWPIGreedy(nums)
-	answer:= remove.NumberOfPairsOfficial(nums)
+	nums := []int{13, 4, 2, 5, 0, 6, 0, 10, 5, 12, 5}
+	answer := subArray.LongestWPIGreedy(nums)
 	fmt.Println("answer: ", answer)
-
 
 }
 
@@ -39,5 +37,3 @@ func countFairPairs(nums []int, lower int, upper int) int64 {
 	}
 	return answer
 }
-
-
