@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/arithmetic/numberTheory"
+	"github.com/LeetcodeGO/operateArray/remove"
 	"sort"
 )
 
 func main() {
 	nums := []int{18,18,18,15,54,45,45,45}
 	//answer := subArray.LongestWPIGreedy(nums)
-	answer:= numberTheory.IsGoodArray(nums)
+	answer:= remove.NumberOfPairsOfficial(nums)
 	fmt.Println("answer: ", answer)
 
 
