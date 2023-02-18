@@ -4,7 +4,7 @@ package patternMatch
 func BalancedString(s string) int {
 	minSubstrLength := len(s)
 	count := make([]int, 4)
-	mark := make([][]int, len(s))
+	mark := make([][]int, len(s)+1)
 	for i, value := range s {
 		switch value {
 		case 'Q':
