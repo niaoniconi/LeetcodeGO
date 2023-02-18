@@ -37,6 +37,8 @@ func LongestWPI(hours []int) int {
 （栈顶肯定最近一个符合要求的数，栈元素中间的数是一个不符合要求的区间，由于找到是最长，所以需要尽量包括这些不合格的区间),
 2.怎么根据r找l，一直弹出栈顶元素，直到栈顶元素是小于s[r]的最小元素
 贪心算法：先找到一定满足要求的解，在找到满足要求的最大解
+
+坏了，官方没有提供go的解，太痛啦
 */
 func LongestWPIGreedy(hours []int) int {
 	interval := 0
@@ -65,7 +67,6 @@ func LongestWPIGreedy(hours []int) int {
 			stk = append(stk, i)
 		}
 	}
-
 	//从后往前，固定r，找l
 	for r := len(hours); len(stk) > 0 && r >= 1; r-- {
 		//temp是栈顶元素
@@ -91,3 +92,4 @@ func LongestWPIGreedy(hours []int) int {
 	}
 	return interval
 }
+
