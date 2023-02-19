@@ -3,6 +3,9 @@ package probability
 import "sort"
 
 // MaxAverageRatio  官方想法和我差不多，维护一个队列，以value值的大小为条件，但是这个队列在go里面只能用array了
+/**
+https://leetcode.cn/problems/longest-well-performing-interval/solution/biao-xian-liang-hao-de-zui-chang-shi-jia-rlij/
+ */
 func MaxAverageRatio(classes [][]int, extraStudents int)float64{
 	var ratio float64
 	sort.Slice(classes, func(i, j int) bool {
