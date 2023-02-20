@@ -25,6 +25,20 @@ func BestHand(ranks []int,suits []byte) string{
 		handType=3
 	}
 
+	//https://pkg.go.dev/bytes#Count
+	/**
+	这一段可以被一下替代，这是bytes	包里面的count函数
+	if bytes.Count(suits, suits[:1]) == 5 {
+	        return "Flush"
+	    }
+	func Count(s, sep []byte) int
+	计算s中含sep的不重叠个数
+	Count counts the number of non-overlapping instances of sep in s. If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s.
+	func main() {
+		fmt.Println(bytes.Count([]byte("cheese"), []byte("e")))    //3
+		fmt.Println(bytes.Count([]byte("five"), []byte(""))) // before & after each rune   //5
+	}
+	*/
 	flag:=true
 	firstSuit:=suits[0]
 	for i:=1;i<len(suits);i++{
