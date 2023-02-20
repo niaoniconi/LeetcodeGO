@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/arithmetic/probability"
+	"github.com/LeetcodeGO/aboutSort/sameK"
 	"sort"
 )
 
 func main() {
-	s:=[][]int{
-	{1,2},{3,5},{2,2},
-	}
-	answer:=probability.MaxAverageRatio(s,2)
+	//
+	ranks :=[]int{13,4,4,4,4}
+	suits :=[]byte{'a','a','a','a','a'}
+	answer:=sameK.BestHand(ranks,suits)
 	fmt.Println("answer: ", answer)
 
 }
