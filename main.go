@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/aboutSort/sameK"
+	"github.com/LeetcodeGO/aboutSort/findKs"
 	"sort"
 )
 
 func main() {
-	//
-	ranks :=[]int{13,4,4,4,4}
-	suits :=[]byte{'a','a','a','a','a'}
-	answer:=sameK.BestHand(ranks,suits)
+	taps :=[]int{3,4,1,1,0,0}
+	answer:=findKs.MinTaps(5,taps)
 	fmt.Println("answer: ", answer)
 
 }
