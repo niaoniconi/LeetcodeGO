@@ -1,9 +1,11 @@
 package probability
+
 //DieSimulator https://leetcode.cn/problems/dice-roll-simulation/
 /**
 概率论学的一般还总想用概率论解出来，瑞思拜自己
 官方是用动态规划写的，先试试
- */
+有数组约束的动态规划
+*/
 //func DieSimulator(n int,rollMax []int)int{
 //	count:=0
 //	dp:=make([][]int,n)
@@ -18,13 +20,12 @@ package probability
 //	return count
 //}
 
-func DieSimulatorTryMath(n int,rollMax []int)int{
-	count:=0
+func DieSimulatorTryMath(n int, rollMax []int) int {
+	count := 0
 	//由于rollMax[i]>=1
-	mod:=1000000007
-	count+=6*5^(n-1)%mod
+	mod := 1000000007
+	count += 6*5 ^ (n-1)%mod
 	//
 
 	return count
 }
-
