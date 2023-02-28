@@ -15,12 +15,14 @@ func MinimumSwap(s1 string, s2 string) int {
 			}
 		}
 	}
+	//还剩奇数对，无法调整
 	if (countDiffX+countDiffY)%2 != 0 {
 		return -1
 	}
+	//都是xx对yy
 	if countDiffY%2 == 0 && countDiffX%2 == 0 {
 		return countDiffY/2 + countDiffX/2
 	}
-
+	//还有一对是xy对yx，有且仅有一对，因为会采取上面那种消除方式，上面那种一对需要一次调换，这种需要两次
 	return countDiffY/2 + countDiffX/2 + 2
 }
