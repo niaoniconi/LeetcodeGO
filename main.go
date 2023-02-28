@@ -17,6 +17,4 @@ func main() {
 	answer:=1+2
 	fmt.Println("answer: ", answer)
 	fmt.Println(ctxStmt,ctxExpr,ctxType,ctxCallee,ctxMultiOK,ctxAssign)
-
 }
-
