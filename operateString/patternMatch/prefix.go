@@ -1,6 +1,9 @@
 package patternMatch
 
-import "sort"
+import (
+	"sort"
+	"strconv"
+)
 
 //RemoveSubfolders https://leetcode.cn/problems/remove-sub-folders-from-the-filesystem/
 /**
@@ -39,4 +42,34 @@ func MatchFolderPrefix(folder string, pattern string) bool {
 		return false
 	}
 	return true
+}
+
+// GetFolderNames https://leetcode.cn/problems/making-file-names-unique/
+/**
+差不多一遍过，第一次运行的时候发现和题目揣测的意思不一样
+改了之后一遍过。另外，记住int转string不要强制转，会出问题，要用函数
+ */
+func GetFolderNames(names []string) []string {
+	var answer []string
+	file:=make(map[string]int)
+	for _,v :=range names{
+		//if file[v]==0{
+		//	answer=append(answer,v)
+		//	file[v]=1
+		//}else{
+		//	temp:=v
+		//	//temp=v+"("+string(file[v])+")"  //这个有问题，转出来格式不对
+		//	temp=v+"("+strconv.Itoa(file[v])+")"
+		//	answer=append(answer,temp)
+		//	file[v]+=1
+		//}
+		temp:=v
+		for file[temp]!=0{                    //直到不同名为止，防止跳跃性的同名，比如a(10)
+			temp=v+"("+strconv.Itoa(file[v])+")"
+			file[v]+=1                        //在同名初始文件记录相同文件的个数
+		}
+		answer=append(answer,temp)
+		file[temp]=1                         //记录不同名的文件
+	}
+	return answer
 }

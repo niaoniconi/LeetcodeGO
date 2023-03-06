@@ -14,7 +14,10 @@ const (
 )
 
 func main() {
-	answer:=1+2
-	fmt.Println("answer: ", answer)
+	a:=1
+	b:=2
+	answer:=a+b
+	test:=[]int{1,2,3}
+	fmt.Println("answer: ", answer, test[a])
 	fmt.Println(ctxStmt,ctxExpr,ctxType,ctxCallee,ctxMultiOK,ctxAssign)
 }
