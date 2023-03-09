@@ -1,8 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
 //iota 一款迭代器
 const (
 	ctxStmt    = 1 << iota // evaluated at statement level
