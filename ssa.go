@@ -1,6 +1,6 @@
 package main
-func ssa(){
+func ssa() []int{
 	test:=[...]int{1,2,3,4}
-	i:=2
-	test[i]=6
+	slice:=test[0:2]
+	return slice
 }
