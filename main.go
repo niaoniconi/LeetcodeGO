@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 //iota 一款迭代器
 const (
@@ -11,12 +14,21 @@ const (
 	ctxMultiOK             // multivalue function returns are ok
 	ctxAssign              // assigning to expression
 )
-
+type animal interface{
+	say(words string)
+}
+type cat struct {
+	language string
+}
+func (c cat) say(words string){
+	println(c.language+" "+words)
+}
 func main() {
-	a:=1
-	b:=2
-	answer:=a+b
-	test:=[]int{1,2,3}
-	fmt.Println("answer: ", answer, test[a])
-	fmt.Println(ctxStmt,ctxExpr,ctxType,ctxCallee,ctxMultiOK,ctxAssign)
+	typeOfError := reflect.TypeOf((*animal)(nil)).Elem()
+	customErrorPtr := reflect.TypeOf(&cat{})
+	customError := reflect.TypeOf(cat{})
+
+	fmt.Println(customErrorPtr.Implements(typeOfError)) // #=> true
+	fmt.Println(customError.Implements(typeOfError)) // #=> false
+
 }
