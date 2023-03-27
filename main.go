@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/LeetcodeGO/operateArray/subArray"
+	"github.com/LeetcodeGO/weekContest"
 )
 
 //iota 一款迭代器
@@ -20,7 +20,9 @@ func main() {
 }
 
 func testLC() {
-	arr := []int{10, 13, 17, 21, 15, 15, 9, 17, 22, 22, 13}
-	answer := subArray.FindLengthOfShortestSubarray(arr)
+	//arr := []int{10, 13, 17, 21, 15, 15, 9, 17, 22, 22, 13}
+	//answer := subArray.FindLengthOfShortestSubarray(arr)
+	//answer := weekContest.KItemsWithMaximumSum(2, 3, 4, 6)
+	answer := weekContest.PrimeSubOperation([]int{38, 39, 52, 16, 67, 96, 69, 44, 63, 29})
 	fmt.Println(answer)
 }
