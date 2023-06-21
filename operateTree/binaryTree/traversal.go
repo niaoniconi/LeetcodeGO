@@ -33,3 +33,19 @@ func traversal(root *TreeNode, answer *[]int) {
 	*answer = append(*answer, root.Val)
 	traversal(root.Right, answer)
 }
+
+//InorderTraversal1 go 闭包版本
+func InorderTraversal1(root *TreeNode) []int {
+	var answer []int
+	var func1 func(root *TreeNode) //不声明的话，递归的时候调用不了，得先确定类型
+	func1 = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		func1(root.Left)
+		answer = append(answer, root.Val)
+		func1(root.Right)
+	}
+	func1(root) //函数调用的地方，不要漏掉了
+	return answer
+}
