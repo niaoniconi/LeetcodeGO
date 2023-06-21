@@ -49,3 +49,50 @@ func InorderTraversal1(root *TreeNode) []int {
 	func1(root) //函数调用的地方，不要漏掉了
 	return answer
 }
+
+// NumTrees 迭代解法 https://leetcode.cn/problems/unique-binary-search-trees/ 会发现中间每个都需要
+//好像没那么简单，需要用动态规划
+func NumTrees(n int) int {
+	var answer int
+	save := make(map[int]int, n)
+	save[1] = 1
+	save[0] = 1
+	save[2] = 2
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i; j++ {
+
+		}
+	}
+	return answer
+}
+
+//NumTrees1 递归解法
+func NumTrees1(n int) int {
+	var answer int
+	save := make(map[int]int, n)
+	save[1] = 1
+	save[0] = 1
+	save[2] = 2
+	var getN func(n int) int
+	getN = func(n int) int {
+		var sum int
+		for i := 1; i <= n; i++ {
+			left := i - 1
+			right := n - i
+			leftN, ok := save[left]
+			if !ok {
+				leftN = getN(left)
+			}
+			rightN, ok2 := save[right]
+			if !ok2 {
+				rightN = getN(right)
+			}
+			sum += leftN * rightN
+		}
+		save[n] = sum
+		return sum
+	}
+	answer = getN(n)
+	return answer
+
+}
